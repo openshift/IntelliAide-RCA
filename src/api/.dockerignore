@@ -1,0 +1,18 @@
+__pycache__
+*.pyc
+.git
+.gitignore
+*.md
+*.docx
+*.txt
+!requirements.txt
+Experiments_Folder.txt
+LLD_ORCHESTRATOR_TOOLS_PROMPTS.docx
+AGENTIC_FRAMEWORK_DOCUMENTATION.md
+# Large log files — do NOT bake into image
+*_service_*.txt
+current_*.txt
+
+config/agent_memory.json
+# Injected at runtime via must-gather-app-config Secret; keep GCP project ID and keys out of registry
+config/config.json

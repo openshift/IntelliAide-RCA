@@ -1,0 +1,17 @@
+# See the OWNERS docs: https://go.k8s.io/owners
+#
+# Prow (openshift-ci) uses this file to drive /approve and /lgtm on pull
+# requests. Entries are GitHub usernames (no leading '@', no email addresses).
+#
+# `component` must match the registered Jira component string exactly; it is
+# consumed by the jira-lifecycle-plugin and ProdSec/ART tooling.
+
+approvers:
+  - chirag-wrk
+  - dattaramba
+
+reviewers:
+  - chirag-wrk
+  - dattaramba
+
+component: IntelliAide

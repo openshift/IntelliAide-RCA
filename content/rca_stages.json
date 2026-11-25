@@ -1,0 +1,87 @@
+{
+  "_version": "1.0.0",
+  "_description": "RCA deepening tiers — API stage ids, on-disk filenames, display labels, and priority-bucket mappings. Shared by Python (utils/content.py) and React (src/content/rcaStages.ts).",
+
+  "stages": [
+    {
+      "id": "Tier_1",
+      "order": 0,
+      "short": "T1",
+      "label": "Tier 1",
+      "round_label": "Tier 1",
+      "deepening_bar_key": "T1",
+      "cost_analytics_key": "Tier1",
+      "result_filename": "RCA_Tier1.txt",
+      "export_pdf_filename": "RCA_Tier_1.pdf",
+      "progression": {
+        "subtitle": "Initial Analysis",
+        "description": "Broad log scan — surfaces the most likely root cause from high-priority files."
+      },
+      "intro": {
+        "subtitle": "Initial scan"
+      }
+    },
+    {
+      "id": "Tier_2",
+      "order": 1,
+      "short": "T2",
+      "label": "Tier 2",
+      "round_label": "Tier 2",
+      "deepening_bar_key": "T2",
+      "cost_analytics_key": "Tier2",
+      "result_filename": "RCA_Tier2.txt",
+      "export_pdf_filename": "RCA_Tier_2.pdf",
+      "progression": {
+        "subtitle": "Deepened Analysis",
+        "description": "Investigates additional files and contexts based on your feedback."
+      },
+      "intro": {
+        "subtitle": "Deepened analysis"
+      }
+    },
+    {
+      "id": "Final",
+      "order": 2,
+      "short": "F",
+      "label": "Final",
+      "round_label": "Final",
+      "deepening_bar_key": "F",
+      "cost_analytics_key": "Final",
+      "result_filename": "RCA_Final.txt",
+      "export_pdf_filename": "RCA_Final.pdf",
+      "progression": {
+        "subtitle": "Final Analysis",
+        "description": "Exhaustive deep-dive — examines all remaining evidence for the definitive root cause."
+      },
+      "intro": {
+        "subtitle": "Definitive RCA"
+      }
+    }
+  ],
+
+  "priority_bucket": {
+    "high": { "file_key": "Tier1", "display": "Tier 1" },
+    "medium": { "file_key": "Tier2", "display": "Tier 2" },
+    "low": { "file_key": "Final", "display": "Final" },
+    "reselect": { "file_key": "Tier2", "display": "Tier 2 (re-select)" }
+  },
+
+  "priority_stage_completed_rounds": {
+    "high": 1,
+    "high_medium": 2,
+    "all": 3,
+    "default": 0
+  },
+
+  "analytics": {
+    "deepening_tier_heading": "Deepening Tier",
+    "file_priority_chart": [
+      { "priority": "high", "name": "Tier 1" },
+      { "priority": "medium", "name": "Tier 2" },
+      { "priority": "low", "name": "Final" }
+    ],
+    "cost_tabs": {
+      "total": { "short": "Σ", "label": "Total (cumulative)" }
+    }
+  }
+}

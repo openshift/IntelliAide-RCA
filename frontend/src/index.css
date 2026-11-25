@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar for terminal areas */
+.font-mono::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.font-mono::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.font-mono::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+.font-mono::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Smooth scrolling for terminal panels */
+[class*="overflow-y-auto"] {
+  scroll-behavior: smooth;
+}
+
+/* Prose overrides for RCA report */
+.prose h2 {
+  scroll-margin-top: 80px;
+}
+
+/* Make number inputs not have spinners */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Selection styling */
+::selection {
+  background-color: rgba(238, 0, 0, 0.2);
+}
+
+/* Admin form field base style */
+@layer components {
+  .input-field {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800
+           placeholder:text-slate-400 focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500
+           focus:outline-none transition-colors;
+  }
+
+  .legal-document-prose {
+    @apply text-slate-800 leading-relaxed font-sans;
+  }
+  .legal-document-prose h1 {
+    @apply text-2xl font-bold text-brand-dark border-b-[3px] border-brand-red pb-2 mb-4;
+  }
+  .legal-document-prose h2 {
+    @apply text-xl font-semibold text-brand-dark mt-8 mb-3;
+  }
+  .legal-document-prose h3 {
+    @apply text-base font-semibold mt-5 mb-2;
+  }
+  .legal-document-prose p {
+    @apply my-3;
+  }
+  .legal-document-prose ul,
+  .legal-document-prose ol {
+    @apply my-3 pl-6 list-disc;
+  }
+  .legal-document-prose table {
+    @apply w-full border-collapse my-4 text-sm;
+  }
+  .legal-document-prose th,
+  .legal-document-prose td {
+    @apply border border-slate-200 px-3 py-2 text-left;
+  }
+  .legal-document-prose th {
+    @apply bg-slate-100 font-semibold;
+  }
+  .legal-document-prose code {
+    @apply font-mono text-sm bg-slate-100 px-1 rounded;
+  }
+  .legal-document-prose hr {
+    @apply my-8 border-slate-200;
+  }
+}

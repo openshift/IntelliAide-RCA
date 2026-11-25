@@ -1,0 +1,122 @@
+# ── Python ──────────────────────────────────────────
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+dist/
+dist-py/
+build/
+.eggs/
+.venv/
+venv/
+env/
+.tox/
+.nox/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+pip-wheel-metadata/
+
+# ── Node / Frontend ────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/tsconfig.tsbuildinfo
+*.tsbuildinfo
+npm-debug.log*
+yarn-error.log*
+.npm/
+
+# ── Runtime outputs (regenerated every run) ────────
+src/api/Results/
+src/api/errors_aggregate.json
+src/api/machine_learning/output/
+src/api/machine_learning/benchmark_out/
+downloads/
+session_exports/
+session_reports/
+session_*/
+
+# ── Session state (reset on startup) ───────────────
+src/api/config/agent_memory.json
+
+# ── Secrets & local config ─────────────────────────
+src/api/config/config.json
+src/api/config/test-config.json
+.env
+.env.*
+!.env.example
+
+# ── Kubernetes / cloud credentials (never commit) ──
+k8s/secret.yaml
+k8s/secret.yml
+k8s/app-secret.yaml
+k8s/app-secret.yml
+**/*.htpasswd
+k8s/.must-gather.htpasswd
+kubeadmin-out/
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+**/application_default_credentials.json
+**/*service-account*.json
+**/*service_account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+!**/*.template.yaml
+
+# ── Must-gather data (customer data — never commit) ─
+must-gather/
+must-gather.local.*
+must-gather*.tar
+must-gather*.tar.gz
+must-gather*.tgz
+must-gather*.tar.bz2
+/data/
+
+# ── Archives & binary build artifacts ──────────────
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.exe
+*.xlsx
+
+# ── Generated docs ─────────────────────────────────
+*.docx
+
+# ── OS / editor junk ──────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.code-workspace
+
+# ── Nested .git ─────
+src/api/.git/
+
+# ── Local RCA session exports & analysis notes ───
+rca-payload-optimization-analysis.md
+intelliaide-vs-ticket-rca-comparison.md
+p2-p3-rca-comparison-summary.md
+case-*-rca-comparison-report.md
+*-rca-comparison-report.md
+
+# ── Internal working docs (not deliverables) ──────
+doc-chronology-without-ai.md
+doc-feedback-mechanism-correctness.md
+to-do.md
+/docs/notes/

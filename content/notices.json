@@ -1,0 +1,26 @@
+{
+  "_version": "1.0.0",
+  "_description": "Single source of truth for all AI/legal notice text. Consumed by both the Python backend (via utils/content.py) and the React frontend (via src/content/notices.ts). Bump _version when substantive content changes.",
+
+  "export_disclaimer": {
+    "heading": "AI-GENERATED CONTENT",
+    "body": "This report was generated using artificial intelligence (Intelliaide RCA Tool). All findings and recommendations must be reviewed and verified by a qualified engineer before use.",
+    "pdf_footer": "AI-Generated - Intelliaide RCA Tool - Review before use"
+  },
+
+  "persistent_banner": {
+    "text": "Always review AI generated content prior to use."
+  },
+
+  "rca_disclaimer": {
+    "text": "This Root Cause Analysis report was generated using artificial intelligence. Please review all findings and recommendations before taking action."
+  },
+
+  "ai_badge": {
+    "label": "AI-Generated"
+  },
+
+  "executive_summary": {
+    "subtitle": "AI-generated summary"
+  }
+}

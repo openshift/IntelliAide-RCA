@@ -1,0 +1,85 @@
+{
+  "_comment_admin": "The 'claude' and 'hydra' sections below are placeholders. In production, admin provides LLM + Hydra credentials via the Admin Setup UI (stored on PVC as _instance/admin_config.json). Admin-facing key name is 'llm'; translated to 'claude' internally.",
+
+  "claude": {
+    "auth_type": "",
+    "service_account_key_file": "/secrets/gcloud/application_default_credentials.json",
+    "api_key": "",
+    "service_account_key_data": {
+      "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+      "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+      "client_email": "",
+      "client_id": "",
+      "client_x509_cert_url": "",
+      "private_key": "",
+      "private_key_id": "",
+      "project_id": "",
+      "token_uri": "https://oauth2.googleapis.com/token",
+      "type": "service_account",
+      "universe_domain": "googleapis.com"
+    },
+    "api_url": "https://aiplatform.googleapis.com",
+    "max_chunk_tokens": 80000,
+    "model_id": "",
+    "max_tokens": 16384,
+    "verify_ssl": true,
+    "endpoint_pattern": "",
+    "custom_gateway": true,
+    "price_per_1m_input_tokens": 3.0,
+    "price_per_1m_output_tokens": 15.0,
+    "project_id": ""
+  },
+
+  "_comment_codeowner": "Everything below is code-owner controlled. Not editable by admin via UI.",
+
+  "use_llm_file_selection": true,
+  "file_selection_only": false,
+  "exit_after_analysis": false,
+  "quiet": false,
+  "always_include_kubelet_files": false,
+  "must_gather_docs_dir": "DataSource",
+  "must_gather_base_dir": "",
+
+  "agent": {
+    "max_iterations": 25,
+    "max_deepening_rounds": 3
+  },
+
+  "deployment_mode": "internal",
+
+  "model_governance": {
+    "enabled": true,
+    "allowed_models": [
+      "claude-sonnet-4-6",
+      "claude-3-5-sonnet-20241022",
+      "claude-3-opus-20240229",
+      "gemini-1.5-pro",
+      "gemini-1.5-flash",
+      "gemini-2.0-flash"
+    ],
+    "blocked_models": ["qwen"],
+    "require_exact_match": false,
+    "block_message": "Model '{model}' is not approved for use with Intelliaide. Approved models: {allowed}. Contact your administrator."
+  },
+
+    "notice": {
+        "document_version": "2.0",
+        "effective_date": "2026-11-05"
+    },
+
+  "notes": {
+    "_admin_config": "LLM and Hydra credentials are admin-provided via /admin/setup UI. Admin uploads as 'llm' key; stored internally as 'claude'. See _instance/admin_config.json on PVC.",
+    "use_llm_file_selection": "Set to true to use LLM to analyze user input and suggest priority files; false to use default YAML list only",
+    "file_selection_only": "Set to true to run only LLM file selection and exit (no data analysis or RCA); false to run full workflow",
+    "exit_after_analysis": "Set to true to exit after YAML and LOG file analysis (no LLM RCA); false to run full workflow including RCA",
+    "always_include_kubelet_files": "Set to true to always add kubelet_service.* and kubelet_journal.* to analysis/RCA; false to use only LLM-suggested files",
+    "quiet": "Set to true to suppress all prints except one: payload sent to LLM and token/cost summary",
+    "must_gather_docs_dir": "Path to must-gather documentation directory (MUST_GATHER_*.md files). Relative paths are resolved from the project root. Default: DataSource",
+    "must_gather_base_dir": "Path to the must-gather root folder. When provided via API request, it overrides this config value.",
+    "deployment_mode": "Set to 'internal' for Red Hat deployments (model governance enforced) or 'external' for customer-managed (governance skipped)",
+    "model_governance.enabled": "Master switch for model allowlist/blocklist enforcement (default: true)",
+    "model_governance.allowed_models": "Model IDs permitted for inference; prefix match unless require_exact_match is true",
+    "model_governance.blocked_models": "Substrings matched case-insensitively against model_id (e.g. 'qwen'); rejected before any LLM call",
+    "model_governance.require_exact_match": "If true, model_id must exactly match an allowed_models entry; if false, prefix matching is used"
+  }
+}
